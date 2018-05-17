@@ -9,7 +9,7 @@ How it works:
 The whole program was made with Robotic Toolbox (v13) designed by Peter Corke. And we used some pre made functions of it. 
 
 (1) part one
-At the beggining we just create the manipulator links with the function Link(). To use it we have to get the Denavit Hartenberg parameters of the manipulator. By this create we put parameters like theta, d, a and alpha just as shown below, for example
+At the beggining we just create the manipulator links with the function Link(). To use it we have to get the Denavit Hartenberg parameters of the manipulator. By this, to create the link we put parameters like theta, d, a and alpha just as shown below, for example
 
 Link_one = ('theta','d',1,'a',1,'alhpa',0, 'qlim', [0 pi ]);
 
