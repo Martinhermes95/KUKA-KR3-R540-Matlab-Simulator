@@ -13,7 +13,7 @@ At the beggining we just create the manipulator links with the function Link(). 
 
 Link_one = ('theta','d',1,'a',1,'alhpa',0, 'qlim', [0 pi ]);
 
-At this example we haven't a theta offset, so the joint angle is just theta1, for example. The offset distence 'd' is 1 (1mm, for ex.). The lenght of the link 'a' is 1 too. The link twist 'alpha' is 0 degrees and theta is limited by 'qlim' from 0 to 180 degrees.
+At this example we haven't a theta offset, so the joint angle is just theta1, for example. The offset distance 'd' is 1 (1mm, for ex.). The lenght of the link 'a' is 1 too. The link twist 'alpha' is 0 degrees and theta is limited by 'qlim' from 0 to 180 degrees.
 
 For the KR3 R540 manipulator we have 6 links and the parameters were took by its specification's manual. It has 5 rotational joints and the tool. L1, L2, L3, L4 and L5 represent the first 5 five link and L6 represent the tool link. 
 
