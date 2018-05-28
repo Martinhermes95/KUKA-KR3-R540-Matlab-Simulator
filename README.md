@@ -11,7 +11,7 @@ The whole program was made with Robotic Toolbox (v13) designed by Peter Corke. A
 
 (1) part one:
 
-At the beggining we just create the manipulator links with the function Link(). To use it we have to get the Denavit Hartenberg parameters of the manipulator. By this, to create the link we put parameters like theta, d, a and alpha just as shown below, for example
+At the beggining we just create the manipulator links with the function Link(). To use it we have to get the Denavit-Hartenberg parameters of the manipulator. By this, to create the link we put parameters like theta, d, a and alpha just as shown below, for example
 
 Link_one = ('theta','d',1,'a',1,'alhpa',0, 'qlim', [0 pi ]);
 
@@ -52,3 +52,53 @@ After all of this we revert the axes Z and Y. It's made because of some Denavit 
 At the end of the code we use geometric and algebraic relations to find the values for the ineverse kinematic.
 
 Have fun.
+________________________________________________________________________________________________________________________________________
+(PT-BR)
+Este é um simulador do KUKA KR3 R540. O código foi feito usando o toolbox Robotic Toolbox criado por Peter Corke. O projeto foi feito para a disciplina de introdução à robótica no curso de Engenharia de Controle e Automaçãao da UFSC.
+
+Desenvolvedores: André Granemann e Martin Hermes Anschau.
+
+Engenharia de Controle e Automação - Universidade Federal de Santa Catarina
+
+O programa todo, exceto a cinemática inversa, foi feito usando funções do Robotic Toolbox (v13).
+
+PARTE 1:
+
+Primeiramente criamos os elos do manipulador com a função Link(). Para usá-la temos de conhecer os parâmetros de Denavit-Hartenberg. E então a função usa os parâmetros, como abaixo
+
+
+Link_one = ('theta','d',1,'a',1,'alhpa',0, 'qlim', [0 pi ]);
+
+Nesse exemplo não temos um offset em theta, o ângulo da junta é apenas theta1. 'd', a distância de offset é 1. O comprimento do elo 'a' é 1 também e a torção do elo 'alpha' é nula (em graus). 'qlim' é o parametro limitador do ângulo da junta, que neste caso é de 0 a 180 graus.
+
+Para o nosso robo temos 6 elos, L1 até L6, sendo que o último representa o elo da ferramenta.
+
+PARTE 2:
+
+Com os elos criados, juntamo-os com a função SerialLink(). Ela é responsável por concatenar os vetores dos elos e criar o manipulador algébricamente. Com o exemplo abaixo isso é fácil de se perceber
+
+Links = [L1;L2]
+Robot = SerialLink(Links, 'name', 'CristianoRonaldo');
+
+O robô tem dois elos com juntas de rotação, L1 e L2, e se chama CristianoRonaldo.
+
+PARTE 3:
+
+Com tudo isso já feito, podemos representar o robô graficamente. Podemos usar a função plot() ou teach(). A primeira representa o robô graficamente sem demais usos e segunda, além de fazer isso, permite-nos mudar os valores dos ângulos das juntas manualmente. Isso tudo pode ser visto abaixo.
+
+q = [pi 0]
+
+figure(1)
+Robot.plot(q);
+
+figure(2)
+Robot.teach
+
+Com o plot acima, representamos o robô com as condições iniciais dadas por 'q', o que é necessário.
+Com teach não precisamo de parâmetros.
+
+Depois disso precisamos inverter o eixo Z e algum dos outros eixos para que o robô esteja virado para cima invés de estar ponta cabeça. Isto é necessário apenas para representá-lo de maneira mais "confortável", pois os parâmetros deste modelo de robô fazem com que o mesmo fique de ponta cabeça.
+
+Por últimos usamos relações algébricas e geométricas para achar os ângulos das juntas, o que determina a cinemática inversa.
+
+Obrigado.
