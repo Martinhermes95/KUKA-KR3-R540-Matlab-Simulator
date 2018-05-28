@@ -49,4 +49,6 @@ Robot.teach
 
 After all of this we revert the axes Z and Y. It's made because of some Denavit Hartenberg parameters of the manipulator like the -20 a's of the first link. Without this inversions the robot is plotted upside down and it's not interesting.
 
+At the end of the code we use geometric and algebraic relations to find the values for the ineverse kinematic.
+
 Have fun.
